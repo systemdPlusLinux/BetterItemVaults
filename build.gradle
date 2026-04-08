@@ -19,9 +19,17 @@ neoForge {
 }
 
 repositories {
-    maven { url = "https://createmod.net" } // Create Repo
+    mavenLocal()
+    maven { url = "https://maven.createmod.net" } // Create, Ponder, Flywheel
+    maven { url = "https://maven.ithundxr.dev/snapshots" } // Registrate
+    maven { url = "https://maven.neoforged.net/releases" } // NeoForge
 }
 
 dependencies {
-    implementation "com.simibubi.create:create-neoforge-1.21.1:0.6.0"
+    // Core Create dependency
+    implementation("com.simibubi.create:create-${minecraft_version}:${create_version}:slim") { transitive = false }
+    
+    // Required companion libraries for Create 0.6.x
+    implementation("net.createmod.ponder:ponder-neoforge:${ponder_version}+mc${minecraft_version}")
+    compileOnly("dev.engine-room.flywheel:flywheel-neoforge-api-${minecraft_version}:0.6.11")
 }
