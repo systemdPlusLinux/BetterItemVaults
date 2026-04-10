@@ -1,5 +1,5 @@
 modLoader="neoforged"
-loaderVersion="[21,)"
+loaderVersion="[1,)"
 license="MIT"
 
 [[mixins]]
@@ -9,7 +9,7 @@ license="MIT"
     modId="betteritemvaults"
     version="1.0.0"
     displayName="Better Item Vaults"
-    description="Forces vaults to hold 1280 single items instead of stacks."
+    description="Forces vaults to hold 1620 single items instead of stacks."
 
 [[dependencies.betteritemvaults]]
     modId="neoforge"
