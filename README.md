@@ -46,7 +46,3 @@ MIT License
 ## Support
 
 For issues or suggestions, please visit the [GitHub repository](https://github.com/systemdPlusLinux/BetterItemVaults).
-
-## Disclaimer
-
-This mod was written almost entirely with CoPilot.  My coding experience is limited and my Java experience even less so.  Any major issues will likely result in this mod no longer being available; likely indefinitely.
