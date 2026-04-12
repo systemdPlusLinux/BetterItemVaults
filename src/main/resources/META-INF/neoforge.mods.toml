@@ -1,6 +1,7 @@
-modLoader="neoforged"
-loaderVersion="[1,)"
+modLoader="javafml"
+loaderVersion="[4,)"
 license="MIT"
+
 
 [[mixins]]
     config="betteritemvaults.mixins.json"
