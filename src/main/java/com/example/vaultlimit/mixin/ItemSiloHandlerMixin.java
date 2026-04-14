@@ -1,6 +1,5 @@
 package com.example.vaultlimit.mixin;
 
-import com.hlysine.create_connected.content.itemsilo.ItemSiloBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -12,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(value = ItemSiloBlockEntity.class, remap = false)
+@Mixin(targets = "com.hlysine.create_connected.content.itemsilo.ItemSiloBlockEntity", remap = false)
 public abstract class ItemSiloHandlerMixin {
 
     @Shadow
