@@ -7,7 +7,7 @@ A NeoForge mod for Minecraft 1.21.1 that modifies Create's Item Vaults to hold *
 - **Improved Storage**: Item Vaults now hold 1280 single items (1 item per slot) instead of the default stacking behavior
 - **Multiblock Support**: Works seamlessly with Create's Item Vault multiblock structures
 - **Display Link Compatible**: Works with Create's Display Link and Threshold Switch for storage monitoring
-- **Create: Connected Support** *(optional)*: When [Create: Connected](https://www.curseforge.com/minecraft/mods/create-connected) is installed, Item Silos also hold 1280 single items (1 item per slot)
+- **Extended Mod Support**: Compatible with other Create extensions that add new variants of the Item Vault. Compatible storage blocks will also hold 1280 single items (1 item per slot)
 
 ## Requirements
 
@@ -34,8 +34,10 @@ Build multiblock vaults as usual, and they will maintain this behavior.
 - **Minecraft Version**: 1.21.1
 - **NeoForge**: `[21,)` (21.0 and above)
 - **Create**: `[6.0,)` (6.0.0 and above)
-- **Create: Connected** *(optional)*: `[1.0,)` — Item Silos will also enforce 1280 slots with 1 item per slot when this mod is present
-
+- **Create: Deco** *(optional)*: `[1.0,)` — Fully compatible with all storage blocks
+- **Create: Design n' Decor** *(optional)*: `[1.0,)` — Fully compatible with all storage blocks
+- **Create: Connected** *(optional)*: `[1.0,)` — Fully compatible with the Item Silo added by this mod
+- **Create: Vibrant Vaults** *(optional)*: `[1.0,)` — Fully compatible with all storage blocks
 ## Notes
 
 - When modifying a multiblock structure, you must **rebuild the entire vault** (pick up and replace all blocks) for changes to take effect
