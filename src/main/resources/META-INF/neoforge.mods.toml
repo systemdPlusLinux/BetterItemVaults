@@ -6,6 +6,9 @@ license="MIT"
 [[mixins]]
     config="betteritemvaults.mixins.json"
 
+[[mixins]]
+    config="betteritemvaults.create_connected.mixins.json"
+
 [[mods]]
     modId="betteritemvaults"
     version="1.0.0"
@@ -23,5 +26,12 @@ license="MIT"
     modId="create"
     type="required"
     versionRange="[6.0,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.betteritemvaults]]
+    modId="create_connected"
+    type="optional"
+    versionRange="[1.0,)"
     ordering="AFTER"
     side="BOTH"
