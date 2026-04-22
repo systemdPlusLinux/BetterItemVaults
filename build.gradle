@@ -1,55 +1,54 @@
 plugins {
-    id 'net.neoforged.moddev' version '1.0.14'
+	id 'fabric-loom' version '1.6.+'
+	id 'maven-publish'
 }
 
+sourceCompatibility = JavaVersion.VERSION_21
+targetCompatibility = JavaVersion.VERSION_21
+
+archivesBaseName = project.mod_id
 version = project.mod_version
 group = project.mod_group_id
 
-neoForge {
-    version = project.neo_version
-    parchment {
-        mappingsVersion = '2024.07.28'
-        minecraftVersion = '1.21'
-    }
-    runs {
-        client { client() }
-    }
-    mods {
-        betteritemvaults {
-            sourceSet sourceSets.main
-        }
-    }
-}
-
 repositories {
-    mavenCentral()
-    maven { url = "https://maven.createmod.net" } // Create's Maven
-    maven { url = "https://maven.neoforged.net/releases" }
+	mavenCentral()
+	maven { url = "https://maven.fabricmc.net/" }
+	maven { url = "https://maven.createmod.net" }
 }
 
 dependencies {
-    // The 'slim' version prevents Gradle from looking for separate Ponder/Flywheel jars
-    implementation("com.simibubi.create:create-${minecraft_version}:${create_version}:slim") { transitive = false }
-}
-
-java {
-    sourceCompatibility = JavaVersion.VERSION_21
-    targetCompatibility = JavaVersion.VERSION_21
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+	mappings loom.officialMojangMappings()
+	
+	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+	
+	// Create mod for Fabric
+	modImplementation "com.simibubi.create:create-fabric-${project.minecraft_version}:${project.create_version}"
 }
 
 tasks.withType(JavaCompile).configureEach {
-    options.encoding = 'UTF-8'
+	it.options.release = 21
+	it.options.encoding = "UTF-8"
 }
 
-tasks.named('jar', Jar) {
-    manifest {
-        attributes([
-            'Specification-Title': project.mod_name,
-            'Specification-Vendor': 'Better Item Vaults',
-            'Specification-Version': '1',
-            'Implementation-Title': project.mod_name,
-            'Implementation-Version': project.mod_version,
-            'Implementation-Vendor': 'Better Item Vaults'
-        ])
-    }
+java {
+	withSourcesJar()
+}
+
+jar {
+	from("LICENSE") {
+		rename { "${it}_${project.archivesBaseName}" }
+	}
+}
+
+publishing {
+	publications {
+		mavenJava(MavenPublication) {
+			from components.java
+		}
+	}
+
+	repositories {
+	}
 }
