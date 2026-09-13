@@ -14,21 +14,28 @@ license="MIT"
 
 [[mods]]
     modId="betteritemvaults"
-    version="1.0.2"
+    version="${mod_version}"
     displayName="Better Item Vaults"
     description="Forces vaults to hold 1280 single items instead of stacks."
 
 [[dependencies.betteritemvaults]]
+    modId="minecraft"
+    type="required"
+    versionRange="[1.21.1]"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.betteritemvaults]]
     modId="neoforge"
     type="required"
-    versionRange="[21,)"
+    versionRange="[21.1.200,)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.betteritemvaults]]
     modId="create"
     type="required"
-    versionRange="[6.0,)"
+    versionRange="[6.0,6.1)"
     ordering="AFTER"
     side="BOTH"
 
