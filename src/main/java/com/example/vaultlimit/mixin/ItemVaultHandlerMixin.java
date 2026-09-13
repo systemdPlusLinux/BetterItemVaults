@@ -1,5 +1,6 @@
 package com.example.vaultlimit.mixin;
 
+import com.example.vaultlimit.SingleItemStackHandler;
 import com.simibubi.create.content.logistics.vault.ItemVaultBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -23,22 +24,13 @@ public abstract class ItemVaultHandlerMixin {
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void replaceInventory(BlockEntityType<?> type, BlockPos pos, BlockState state, CallbackInfo ci) {
-        ItemVaultHandlerMixin self = this;
-        this.inventory = new ItemStackHandler(1280) {
-            @Override
-            protected void onContentsChanged(int slot) {
-                super.onContentsChanged(slot);
-                self.updateComparators();
-                BlockEntity be = (BlockEntity) (Object) self;
-                if (be.getLevel() != null) {
-                    be.getLevel().blockEntityChanged(be.getBlockPos());
-                }
-            }
+        this.inventory = new SingleItemStackHandler((BlockEntity) (Object) this);
+    }
 
-            @Override
-            public int getSlotLimit(int slot) {
-                return 1;
-            }
-        };
+    @Inject(method = "tick", at = @At("HEAD"))
+    private void flushComparatorUpdate(CallbackInfo ci) {
+        if (this.inventory instanceof SingleItemStackHandler handler && handler.consumeComparatorUpdate()) {
+            updateComparators();
+        }
     }
 }
