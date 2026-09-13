@@ -12,8 +12,8 @@ A NeoForge mod for Minecraft 1.21.1 that modifies Create's Item Vaults to hold *
 ## Requirements
 
 - **Minecraft**: 1.21.1
-- **NeoForge**: 21.0 or higher
-- **Create**: 6.0.0 or higher
+- **NeoForge**: 21.1.200 or higher
+- **Create**: 6.0.x (6.0.0 or higher, below 6.1)
 
 ## Installation
 
@@ -32,8 +32,8 @@ Build multiblock vaults as usual, and they will maintain this behavior.
 ## Compatibility
 
 - **Minecraft Version**: 1.21.1
-- **NeoForge**: `[21,)` (21.0 and above)
-- **Create**: `[6.0,)` (6.0.0 and above)
+- **NeoForge**: `[21.1.200,)` (21.1.200 and above)
+- **Create**: `[6.0,6.1)` (6.0.x)
 - **Create: Deco** *(optional)*: `[1.0,)` — Fully compatible with all storage blocks
 - **Create: Design n' Decor** *(optional)*: `[1.0,)` — Fully compatible with all storage blocks
 - **Create: Connected** *(optional)*: `[1.0,)` — Fully compatible with the Item Silo added by this mod
